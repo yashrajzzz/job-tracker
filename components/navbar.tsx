@@ -2,11 +2,12 @@
 import React from 'react'
 import { Authenticated, UnAuthenticated } from './auth-guard'
 import Link from 'next/link'
+import { LogIn } from 'lucide-react'
 
 const Navbar = () => {
     return (
         <>
-            <nav className='fixed bg-white dark:bg-zinc-900 w-screen flex justify-center items-center h-12'>
+            <nav className='fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15'>
                 <div className='flex justify-between items-center md:w-[60%] w-[90%]'>
                     <div>
                         <Link href="/">
@@ -19,8 +20,9 @@ const Navbar = () => {
                         </Link>
                     </Authenticated>
                     <UnAuthenticated>
-                        <Link href="/auth" className='text-black dark:text-white bg-[#747488] dark:bg-zinc-700 px-2 py-1.5 rounded-4xl w-40 text-center'>
+                        <Link href="/auth" className='text-black dark:text-white bg-[#747488] dark:bg-zinc-900 px-2 py-1.5 rounded-4xl w-40 text-center'>
                             LogIn / SignUp
+                            {/* svg */}
                         </Link>
                     </UnAuthenticated>
                 </div>

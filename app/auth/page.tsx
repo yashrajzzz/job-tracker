@@ -2,10 +2,11 @@
 
 // https://cdn.dribbble.com/userupload/15520665/file/original-1a8b6a1ce8844bc070407a901466ad0b.png?resize=1024x768&vertical=center
 import React from 'react'
+import Link from 'next/link'
 import { signOut, useSession, signIn } from "next-auth/react"
 import { redirect } from 'next/navigation'
 import * as Tabs from "@radix-ui/react-tabs"
-import { Github, LogIn, UserPlus } from 'lucide-react'
+import { Github, LogIn, UserPlus, ArrowLeftCircle } from 'lucide-react'
 import Login from './components/login'
 import Signup from './components/signup'
 
@@ -15,10 +16,13 @@ const auth = () => {
         return (
             <div className='bg-[#e5e5e6] dark:bg-zinc-900'>
                 <nav className="absolute w-screen flex justify-center items-center h-20 md:mt-10 text-black dark:text-white">
-                    <img src="/icons/logo.svg" alt="Job Tracker" className="h-18 md:h-20 dark:invert" />
+                    <img src="/icons/logo.svg" alt="Job Tracker" className="h-18 md:h-20 dark:invert z-10 pb-5" />
                 </nav>
                 <main className="h-screen flex justify-center items-center text-black dark:text-white">
-                    <div className="w-90 md:w-120 border border-black/20 rounded-xl flex flex-col justify-center items-center bg-white dark:bg-black py-10 gap-5">
+                    <div className="absolute w-90 md:w-120 border border-black/20 rounded-xl flex flex-col justify-center items-center bg-white dark:bg-black py-10 gap-5">
+                        <Link href='/'>
+                            <ArrowLeftCircle className='absolute left-4 top-4 h-8 w-8' />
+                        </Link>
                         <Tabs.Root defaultValue="login" orientation="horizontal" className='md:w-[80%] w-[90%] flex justify-center items-center flex-col'>
                             <Tabs.Content value="login" className='w-full flex flex-col justify-center items-center mb-5'>
                                 <LogIn className='w-12 h-12 mb-5' />
@@ -44,7 +48,7 @@ const auth = () => {
                         <div className='flex w-[80%] h-11 gap-2'>
                             <button
                                 className='flex-1 flex justify-center items-center border border-black/20 dark:border-white/10 rounded-md p-2.5'
-                                onClick={()=> signIn("google")}
+                                onClick={() => signIn("google")}
                             >
                                 <img src="/icons/google.svg" alt="" className='h-full' /></button>
                             <button
@@ -58,7 +62,7 @@ const auth = () => {
             </div>
         )
     }
-    else{
+    else {
         redirect('/')
     }
 }
