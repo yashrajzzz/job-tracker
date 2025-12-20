@@ -44,6 +44,7 @@ const auth = () => {
                         <div className='flex w-[80%] h-11 gap-2'>
                             <button
                                 className='flex-1 flex justify-center items-center border border-black/20 dark:border-white/10 rounded-md p-2.5'
+                                onClick={()=> signIn("google")}
                             >
                                 <img src="/icons/google.svg" alt="" className='h-full' /></button>
                             <button
