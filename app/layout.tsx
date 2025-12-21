@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import SessionWrapper from "@/components/session-wrapper";
+import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
   title: "Job Tracker",
@@ -16,8 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body data-theme='dark'>
-        <SessionWrapper>{children}</SessionWrapper>
+      <body>
+        <SessionWrapper>
+          <ThemeProvider>{children}</ThemeProvider></SessionWrapper>
       </body>
     </html>
   );

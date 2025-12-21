@@ -2,6 +2,7 @@ import React from 'react'
 import { signIn, useSession } from "next-auth/react"
 import { unstable_PasswordToggleField as PasswordToggleField } from "radix-ui";
 import { Eye, EyeClosed, Mail, LockKeyhole } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 const Login = () => {
     return (
@@ -14,8 +15,8 @@ const Login = () => {
             </div>
             <div className='bg-[#e5e5e6] dark:bg-zinc-900 flex border dark:border-white/20 rounded-md mb-5'>
                 <PasswordToggleField.Root>
-                    <LockKeyhole className='w-7 h-8 my-2 mx-3'/>
-                    <PasswordToggleField.Input className='h-12 w-full px-1 focus:outline-0' placeholder='Password'/>
+                    <LockKeyhole className='w-7 h-8 my-2 mx-3' />
+                    <PasswordToggleField.Input className='h-12 w-full px-1 focus:outline-0' placeholder='Password' />
                     <PasswordToggleField.Toggle>
                         <PasswordToggleField.Icon
                             visible={<Eye />}
@@ -27,9 +28,13 @@ const Login = () => {
             <div className='flex justify-end'>
                 <button className='text-sm opacity-70 text-right mb-1'>Forgot Password?</button>
             </div>
-            <button type='submit'
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 className='border dark:border-white/20 h-13 rounded-md bg-[#e5e5e6] dark:bg-zinc-900'
-            >Submit</button>
+            >
+                Submit
+            </motion.button>
         </form>
     )
 }
