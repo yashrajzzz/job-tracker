@@ -14,7 +14,7 @@ export function ToggleMode() {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
             {(theme === "dark" ? (
-                <SunDimIcon className='border dark:border-white/40 border-black/40 rounded-full md:p-1 md:h-9 md:w-9 p-3 h-12 w-13 dark:bg-black bg-white text-black dark:text-white transition-colors' />
+                <SunDimIcon className='border dark:border-white/40 border-black/40 rounded-full md:p-1 md:h-9 md:w-9 p-3 h-12 w-13 dark:bg-black bg-white transition-colors' />
             ) : (
                 <MoonIcon className='border dark:border-white/40 border-black/40 rounded-full md:p-1.5 md:h-9 md:w-9 p-3 h-12 w-13 dark:bg-black bg-white text-black dark:text-white transition-colors' />
             ))
