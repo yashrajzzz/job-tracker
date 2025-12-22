@@ -1,10 +1,14 @@
 "use client"
 import React from 'react'
+import { redirect } from 'next/navigation'
 import DashNav from './components/dashnav'
 import Snowfall from 'react-snowfall'
+import { useSession } from 'next-auth/react'
 
 const page = () => {
-    return (
+    const { data: session } = useSession()
+    if (!session) redirect('/')
+    else return (
         <div>
             <Snowfall color="#82C8D9" />
             <DashNav />
