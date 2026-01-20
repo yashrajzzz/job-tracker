@@ -13,3 +13,4 @@ export function UnAuthenticated({ children }: { children: ReactNode }) {
     const { data: session } = useSession()
     if (session) return null
     return <>{children}</>
+}
